@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++23: Build & Run Current File",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "& { g++ -std=c++23 -Wall -Wextra -Wpedantic -Wshadow -Wconversion -Wnull-dereference -Wold-style-cast -Woverloaded-virtual -Wdouble-promotion -O2 -g3 -m64 -fdiagnostics-color=always \"${file}\" -o \"${fileDirname}\\${fileBasenameNoExtension}.exe\"; if ($LASTEXITCODE -eq 0) { & \"${fileDirname}\\${fileBasenameNoExtension}.exe\" } }"
+      ],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "clear": true
+      },
+      "detail": "g++ | C++23 | full warnings | -O2 | x64"
+    }
+  ]
+}

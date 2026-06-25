@@ -1,0 +1,26 @@
+{
+  "configurations": [
+    {
+      "name": "C++ (GCC x64)",
+      "includePath": ["${workspaceFolder}/**"],
+      "defines": ["UNICODE", "_UNICODE", "NOMINMAX"],
+      "compilerPath": "g++",
+      "cStandard": "c23",
+      "cppStandard": "c++23",
+      "intelliSenseMode": "windows-gcc-x64",
+      "compilerArgs": [
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Wshadow",
+        "-Wconversion",
+        "-Wnull-dereference",
+        "-Wold-style-cast",
+        "-Woverloaded-virtual",
+        "-Wdouble-promotion",
+        "-m64"
+      ]
+    }
+  ],
+  "version": 4
+}

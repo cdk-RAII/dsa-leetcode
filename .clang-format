@@ -1,0 +1,36 @@
+BasedOnStyle: LLVM
+Standard: Latest
+
+# Indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+IndentCaseLabels: true
+IndentPPDirectives: None
+
+# Line width
+ColumnLimit: 100
+
+# Braces
+BreakBeforeBraces: Attach
+InsertBraces: true
+
+# Short constructs — prefer explicit blocks
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: Inline
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
+
+# Includes
+SortIncludes: CaseSensitive
+IncludeBlocks: Preserve
+
+# C++ specifics
+Cpp11BracedListStyle: true
+SpaceBeforeCpp11BracedList: false
+
+PointerAlignment: Left
+ReferenceAlignment: Left
