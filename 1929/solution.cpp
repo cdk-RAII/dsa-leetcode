@@ -3,6 +3,11 @@
 
 using namespace std;
 
+// Complexity Analysis:
+// Time Complexity: O(n), where n is the size of the input vector nums. We iterate through the
+// vector once to copy its elements and once more to append them to the result. Space Complexity:
+// O(n), where n is the size of the input vector nums. We create a new vector ans to store the
+// concatenated result.
 class Solution {
   public:
     vector<int> getConcatenation(vector<int>& nums) {
