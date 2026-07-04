@@ -19,7 +19,8 @@ class Solution {
         // Reserve space to avoid multiple reallocations
         numsSet.reserve(nums.size());
 
-        for (int num : nums) {
+        // Here auto is "int"
+        for (const auto& num : nums) {
             numsSet.insert(num);
         }
 
@@ -37,9 +38,10 @@ class Solution {
 // if we consider the space used by the sorting algorithm.
 
 // class Solution {
-//    public:
-//      bool containsDuplicate(vector<int>& nums) {
-//          int numsSize = nums.size();
+//   public:
+//     bool containsDuplicate(vector<int>& nums) {
+//         // Here auto is "size_t"
+//         auto numsSize = nums.size();
 
 //         // Sort the vector, as unique requires sorted input to remove duplicates correctly
 //         sort(nums.begin(), nums.end());

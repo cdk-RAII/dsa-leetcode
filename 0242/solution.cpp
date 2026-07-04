@@ -22,18 +22,21 @@ class Solution {
         frequency.reserve(s.size());
 
         // Count the frequency of each character in string s
-        for (auto letter : s) {
+        // Here auto is "char"
+        for (const auto& letter : s) {
             frequency[letter]++;
         }
 
         // Decrease the frequency based on characters in string t
-        for (auto letter : t) {
+        // Here auto is "char"
+        for (const auto& letter : t) {
             frequency[letter]--;
         }
 
         // Check if all frequencies are zero, indicating that s and t are anagrams
-        for (auto letter : frequency) {
-            if (letter.second != 0) {
+        // Here auto is "pair<const char, int>"
+        for (const auto& [letter, count] : frequency) {
+            if (count != 0) {
                 return false;
             }
         }

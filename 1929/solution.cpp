@@ -15,8 +15,9 @@ class Solution {
         // Reserve space for the concatenated result to avoid multiple reallocations
         ans.reserve(nums.size() * 2);
 
-        for (int i : nums) {
-            ans.push_back(i);
+        // Here auto is "int"
+        for (const auto& num : nums) {
+            ans.push_back(num);
         }
 
         return ans;
@@ -34,9 +35,14 @@ int main() {
     vector<int> result = solution.getConcatenation(nums);
 
     // Print the result
-    for (int num : result) {
-        std::cout << num << " ";
+    cout << "[";
+    for (auto i = 0; i < result.size(); ++i) {
+        cout << result[i];
+        if (i < result.size() - 1) {
+            cout << ", ";
+        }
     }
+    cout << "]\n";
 
     return 0;
 }
