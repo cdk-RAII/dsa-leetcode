@@ -15,9 +15,8 @@ class Solution {
         unordered_map<int, int> diff;
         diff.reserve(nums.size());
 
-        // Here auto is "int", should be "size_t" instead, but problem requires "int" as return
-        // type, so we use "auto" to avoid warnings. So ignore the warning in the terminal.
-        for (auto idx = 0; idx < nums.size(); ++idx) {
+        // Here auto is "int"
+        for (auto idx = 0; idx < static_cast<int>(nums.size()); ++idx) {
             if (diff.contains(nums[idx])) {
                 indices.push_back(diff[nums[idx]]);
                 indices.push_back(idx);
