@@ -6,9 +6,11 @@
 using namespace std;
 
 // Complexity Analysis:
-// Time Complexity: O(n), where n is the size of the input vector nums. We iterate through the
-// vector once to insert its elements into the unordered_set. Space Complexity: O(n), where n is the
-// size of the input vector nums. We create an unordered_set to store unique elements.
+// Time Complexity: O(n) ~ O(n), where n is the size of the input vector nums. We iterate through
+// nums once, and each unordered_set insert is O(1) amortized average-case (worst case O(n) per
+// insert under hash collisions, though this is rare in practice), giving O(n) total.
+// Space Complexity: O(n), where n is the size of the input vector nums. In the worst case (no
+// duplicates), numsSet grows to hold all n elements.
 
 class Solution {
   public:
@@ -32,10 +34,12 @@ class Solution {
     }
 };
 
-// Time Complexity: O(n log n), where n is the size of the input vector nums. We sort the vector,
-// which takes O(n log n) time, and then iterate through it to check for duplicates, which takes
-// O(n) time. Space Complexity: O(1) if we ignore the space used by the sorting algorithm, or O(n)
-// if we consider the space used by the sorting algorithm.
+// Time Complexity: O(n log n + n) ~ O(n log n), where n is the size of the input vector nums.
+// sort() costs O(n log n) (the dominant term), and the subsequent unique() + erase() pass to drop
+// duplicates costs O(n).
+// Space Complexity: O(log n), where n is the size of the input vector nums. sort(), unique(), and
+// erase() all operate in place on nums (no auxiliary buffer proportional to n), but std::sort's
+// typical introsort implementation uses O(log n) recursion stack space in the worst case.
 
 // class Solution {
 //   public:

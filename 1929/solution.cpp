@@ -4,10 +4,13 @@
 using namespace std;
 
 // Complexity Analysis:
-// Time Complexity: O(n), where n is the size of the input vector nums. We iterate through the
-// vector once to copy its elements and once more to append them to the result. Space Complexity:
-// O(n), where n is the size of the input vector nums. We create a new vector ans to store the
-// concatenated result.
+// Time Complexity: O(n + n + n) ~ O(n), where n is the size of the input vector nums.
+// Copy-constructing ans from nums costs O(n); reserve(nums.size() * 2) may need to copy ans's
+// existing n elements into a new, larger buffer, costing O(n); and the loop performs n amortized
+// O(1) push_backs, costing O(n). Total: O(n).
+// Space Complexity: O(n), where n is the size of the input vector nums. ans ends up holding 2n
+// elements, which is still O(n); it is the only auxiliary storage the function allocates.
+
 class Solution {
   public:
     vector<int> getConcatenation(vector<int>& nums) {

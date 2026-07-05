@@ -6,8 +6,12 @@ using namespace std;
 
 // Complexity Analysis:
 // Time Complexity: O(n), where n is the size of the input vector nums. We iterate through the
-// vector once to find the two indices. Space Complexity: O(n), where n is the size of the input
-// vector nums. We create an unordered_map to store the elements and their indices.
+// vector once, performing O(1) amortized hash map lookups/inserts at each step to find the two
+// indices.
+// Space Complexity: O(n), where n is the size of the input vector nums. In the worst case, the
+// unordered_map stores up to n - 1 entries, each mapping a complement (target - nums[idx]) to its
+// index.
+
 class Solution {
   public:
     vector<int> twoSum(vector<int>& nums, int target) {

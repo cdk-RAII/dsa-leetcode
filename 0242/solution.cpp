@@ -6,10 +6,15 @@
 using namespace std;
 
 // Complexity Analysis:
-// Time Complexity: O(n), where n is the length of the input strings s and t. We iterate through
-// both strings once to build the frequency map and then iterate through the map to check for any
-// non-zero counts. Space Complexity: O(n), where n is the length of the input strings s and t. We
-// create an unordered_map to store the frequency of characters in string s.
+// Time Complexity: O(n + n + u) ~ O(n), where n is the length of s (equal to t's length after the
+// initial size check), and u is the number of distinct characters seen (bounded by the char
+// alphabet, a fixed constant - e.g. <= 26 for lowercase English letters, or <= 256 for a general
+// 8-bit char). Building the frequency map from s costs O(n), decrementing it from t costs O(n), and
+// the final loop over frequency costs O(u), which is O(1) since u is constant. Total: O(n).
+// Space Complexity: O(u) ~ O(1). frequency is keyed by char, so its size can never exceed the size
+// of the char domain (a fixed constant), regardless of how large n grows - it does not scale with
+// n.
+
 class Solution {
   public:
     bool isAnagram(string s, string t) {

@@ -7,11 +7,16 @@
 using namespace std;
 
 // Complexity Analysis:
-// Time Complexity: O(n * k log k), where n is the number of strings in the input vector strs, and k
-// is the maximum length of a string in strs. We iterate through each string in strs, and for each
-// string, we sort its characters, which takes O(k log k) time. Space Complexity: O(n * k), where n
-// is the number of strings in strs, and k is the maximum length of a string in strs. We store the
-// grouped anagrams in a vector of vectors, which can take up to O(n * k) space in the worst case.
+// Time Complexity: O(n*k + n*k log k + n*k) ~ O(n * k log k), where n is the number of strings in
+// strs, and k is the maximum length of a string in strs. For each of the n strings we: copy it into
+// tempSort (O(k)), sort its characters (O(k log k), the dominant term), and hash/insert it into
+// anagramsMap (O(k)). Afterward, copying every group from anagramsMap into result costs O(n * k).
+// Summing all terms and dropping the non-dominant ones leaves O(n * k log k).
+// Space Complexity: O(n*k + n*k) ~ O(n * k), where n is the number of strings in strs, and k is the
+// maximum length of a string in strs. anagramsMap stores a sorted-key copy of every string plus all
+// original strings grouped by key (O(n * k)), and result then holds a second copy of the same n
+// strings (another O(n * k)), so the total remains O(n * k).
+
 class Solution {
   public:
     vector<vector<string>> groupAnagrams(vector<string>& strs) {
