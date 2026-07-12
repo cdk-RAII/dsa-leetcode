@@ -3,6 +3,42 @@
 
 using namespace std;
 
+// This was the first solution I came up with, but it is more complicated syntactically and
+// logically than the final solution below. It is left here for posterity.
+
+// class Solution {
+//   public:
+//     int maxProfit(vector<int>& prices) {
+//         int currentBuy = prices[0];
+//         int rollingProfit = 0;
+//         int totalProfit = 0;
+//         for (size_t i = 1; i < prices.size(); ++i) {
+//             int possibleProfit = prices[i] - currentBuy;
+//             if (possibleProfit >= 0) {
+//                 if (possibleProfit >= rollingProfit) {
+//                     rollingProfit = possibleProfit;
+//                     if (i == prices.size() - 1) {
+//                         totalProfit = totalProfit + rollingProfit;
+//                     }
+//                 } else if (possibleProfit < rollingProfit) {
+//                     totalProfit = totalProfit + rollingProfit;
+//                     rollingProfit = 0;
+//                     i--;
+//                     currentBuy = prices[i];
+//                 }
+//             } else if (possibleProfit < 0) {
+//                 if (rollingProfit > 0) {
+//                     totalProfit = totalProfit + rollingProfit;
+//                     rollingProfit = 0;
+//                     i--;
+//                 }
+//                 currentBuy = prices[i];
+//             }
+//         }
+//         return totalProfit;
+//     }
+// };
+
 // Complexity Analysis:
 // Time Complexity: O(n), where n is prices.size(). A single pass compares each adjacent pair
 // (prices[i], prices[i - 1]), doing O(1) work per iteration (one comparison and at most one
