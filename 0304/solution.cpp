@@ -7,6 +7,7 @@ using namespace std;
 // Time Complexity: O(m * n) for the constructor, where m is the number of rows and n is the number
 // of columns in the matrix. The sumRegion method has a time complexity of O(1).
 // Space Complexity: O(m * n) for storing the prefix summed matrix.
+
 class NumMatrix {
   public:
     vector<vector<int>> prefixSummedMatrix;
