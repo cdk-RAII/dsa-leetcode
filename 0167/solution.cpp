@@ -14,29 +14,29 @@ using namespace std;
 // a few integer variables (left and right). The returned vector always contains exactly two
 // integers, so it occupies constant space and is not counted as auxiliary space.
 
-class Solution {
-  public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        int left = 0;
-        int right = static_cast<int>(numbers.size()) - 1;
+// class Solution {
+//   public:
+//     vector<int> twoSum(vector<int>& numbers, int target) {
+//         int left = 0;
+//         int right = static_cast<int>(numbers.size()) - 1;
 
-        while (left < right) {
-            if (numbers[left] + numbers[right] == target) {
-                return {left + 1, right + 1};
-            }
+//         while (left < right) {
+//             if (numbers[left] + numbers[right] == target) {
+//                 return {left + 1, right + 1};
+//             }
 
-            while (numbers[left] + numbers[right] > target) {
-                right--;
-            }
+//             while (numbers[left] + numbers[right] > target) {
+//                 right--;
+//             }
 
-            while (numbers[left] + numbers[right] < target) {
-                left++;
-            }
-        }
+//             while (numbers[left] + numbers[right] < target) {
+//                 left++;
+//             }
+//         }
 
-        return {left + 1, right + 1};
-    }
-};
+//         return {left + 1, right + 1};
+//     }
+// };
 
 // Complexity Analysis:
 // Time Complexity: O(n), where n is the size of the input vector numbers. The left pointer starts
