@@ -14,6 +14,7 @@ using namespace std;
 // Since m <= n, this simplifies to O(n).
 // Space Complexity: O(n) (more precisely O(m)), where n is nums.size(). In the worst case (no
 // duplicates), numsSet grows to hold all n elements.
+
 class Solution {
   public:
     int longestConsecutive(vector<int>& nums) {
