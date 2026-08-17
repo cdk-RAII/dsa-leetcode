@@ -30,12 +30,20 @@ class Solution {
                 return mid;
             } else if (nums[start] <= nums[mid]) {
                 if (nums[mid] > target && nums[start] <= target) {
+                    if (nums[start] == target) {
+                        return start;
+                    }
+
                     end = mid - 1;
                 } else {
                     start = mid + 1;
                 }
             } else if (nums[mid] < nums[end]) {
                 if (nums[mid] < target && nums[end] >= target) {
+                    if (nums[end] == target) {
+                        return end;
+                    }
+
                     start = mid + 1;
                 } else {
                     end = mid - 1;
