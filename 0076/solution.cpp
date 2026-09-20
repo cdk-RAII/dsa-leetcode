@@ -65,7 +65,7 @@ class Solution {
         }
 
         for (int right = 0; right < sS; ++right) {
-            // Here auto is pair<const char, pair<int, int>>
+            // Here auto is an iterator (pointer-like object) to pair<const char, pair<int, int>>
             auto it = tFreq.find(s[right]);
 
             if (it != tFreq.end()) {
@@ -77,7 +77,8 @@ class Solution {
             }
 
             while (required == 0) {
-                // Here auto is pair<const char, pair<int, int>>
+                // Here auto is an iterator (pointer-like object) to pair<const char, pair<int,
+                // int>>
                 auto it1 = tFreq.find(s[left]);
 
                 if (it1 != tFreq.end()) {
