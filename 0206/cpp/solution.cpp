@@ -3,7 +3,6 @@
 
 using namespace std;
 
-// Definition for singly-linked list.
 struct ListNode {
     int val;
     ListNode* next;
@@ -15,10 +14,8 @@ struct ListNode {
 ListNode* createList(const std::vector<int>& values) {
     ListNode* head = nullptr;
     ListNode* tail = nullptr;
-
     for (const int value : values) {
         ListNode* newNode = new ListNode(value);
-
         if (head == nullptr) {
             head = newNode;
             tail = newNode;
@@ -27,21 +24,17 @@ ListNode* createList(const std::vector<int>& values) {
             tail = newNode;
         }
     }
-
     return head;
 }
 
 void printList(const ListNode* head) {
     std::cout << "[";
-
     for (const ListNode* current = head; current != nullptr; current = current->next) {
         std::cout << current->val;
-
         if (current->next != nullptr) {
             std::cout << ", ";
         }
     }
-
     std::cout << "]\n";
 }
 
@@ -58,28 +51,22 @@ class Solution {
     ListNode* reverseList(ListNode* head) {
         ListNode* prevN = nullptr;
         ListNode* currN = head;
-
         while (currN != nullptr) {
             ListNode* nextN = currN->next;
             currN->next = prevN;
             prevN = currN;
             currN = nextN;
         }
-
         return prevN;
     }
 };
 
 int main() {
     Solution solution;
-
     const std::vector<int> testCase{1, 2, 3, 4, 5};
-
     ListNode* head = createList(testCase);
     ListNode* reversedHead = solution.reverseList(head);
-
     printList(reversedHead);
     deleteList(reversedHead);
-
     return 0;
 }

@@ -11,41 +11,29 @@ class Solution {
         if (s.size() != t.size()) {
             return false;
         }
-
         unordered_map<char, int> frequency;
         frequency.reserve(s.size());
-
         for (const char& letter : s) {
             frequency[letter]++;
         }
-
         for (const char& letter : t) {
             frequency[letter]--;
         }
-
         // Here auto is "pair<const char, int>"
         for (const auto& [letter, count] : frequency) {
             if (count != 0) {
                 return false;
             }
         }
-
         return true;
     }
 };
 
 int main() {
-    // Create an instance of the Solution class
     Solution solution;
-
-    // Test case
     string s = "anagram";
     string t = "nagaram";
-
-    // Check if the strings are anagrams
     bool result = solution.isAnagram(s, t);
-
     cout << boolalpha << result << "\n";
-
     return 0;
 }
